@@ -1,0 +1,34 @@
+import type { IconType } from "react-icons";
+import { HiOutlineHome } from "react-icons/hi2";
+import { CgFileDocument } from "react-icons/cg";
+import { AiOutlineProduct } from "react-icons/ai";
+import { RiChatSmile3Line } from "react-icons/ri";
+
+type menuItem = {
+  title: string;
+  Icon: IconType;
+  link: string;
+};
+
+export const menu: Array<menuItem> = [
+  {
+    title: "صفحه‌اصلی",
+    Icon: HiOutlineHome,
+    link: "/",
+  },
+  {
+    title: "رزومه",
+    Icon: CgFileDocument,
+    link: "/resume",
+  },
+  {
+    title: "نمونه‌کارها",
+    Icon: AiOutlineProduct,
+    link: "/projects",
+  },
+  {
+    title: "ارتباط با من",
+    Icon: RiChatSmile3Line,
+    link: "/contact",
+  },
+];
