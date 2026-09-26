@@ -8,6 +8,7 @@ export default function Dock() {
     <div className="dock dock-md md:dock-xl lg:hidden">
       {menu.map((item) => (
         <Link
+          key={item.title}
           to={item.link}
           className={item.link === pathname ? "dock-active" : ""}
         >
