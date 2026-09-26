@@ -1,17 +1,41 @@
-import { useEffect } from "react";
-import { themeInitialization } from "./lib/theme";
+import { useEffect, useRef } from "react";
 import { Outlet } from "react-router";
-import Dock from "./features/Dock/Dock";
+
+import { themeInitialization } from "./lib/theme";
+
+import Dock from "./features/Navigation/Dock";
+import Sidebar from "./features/Navigation/Sidebar";
 
 function App() {
+  const drawerRef = useRef<HTMLInputElement>(null)
+
   useEffect(() => {
-    themeInitialization()
+    themeInitialization();
+
+    if (drawerRef.current)
+      drawerRef.current.checked = true
   }, []);
-  
+
   return (
     <>
-      <Dock />
-      <Outlet />
+      <div className="drawer lg:drawer-open max-lg:hidden">
+        <input
+          ref={drawerRef}
+          id="main-drawer"
+          type="checkbox"
+          className="drawer-toggle inline"
+        />
+        <div className="drawer-content">
+          <Outlet />
+        </div>
+        <Sidebar />
+      </div>
+      <div className="block lg:hidden">
+        <Dock />
+        <main className="p-4 bg-base-100">
+          <Outlet />
+        </main>
+      </div>
     </>
   );
 }

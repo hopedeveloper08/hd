@@ -1,7 +1,7 @@
 import type { IconType } from "react-icons";
 import { HiOutlineHome } from "react-icons/hi2";
 import { CgFileDocument } from "react-icons/cg";
-import { AiOutlineProduct } from "react-icons/ai";
+import { HiOutlineSquares2X2 } from "react-icons/hi2";
 import { RiChatSmile3Line } from "react-icons/ri";
 
 type menuItem = {
@@ -23,7 +23,7 @@ export const menu: Array<menuItem> = [
   },
   {
     title: "نمونه‌کارها",
-    Icon: AiOutlineProduct,
+    Icon: HiOutlineSquares2X2,
     link: "/projects",
   },
   {

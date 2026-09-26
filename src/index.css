@@ -79,4 +79,7 @@
   .center {
     @apply flex justify-center items-center;
   }
+  .drawer-btn {
+    @apply btn btn-circle btn-ghost hover:bg-primary/10 hover:border-primary/30;
+  }
 }

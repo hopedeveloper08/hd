@@ -5,7 +5,7 @@ export default function Dock() {
   const pathname = useLocation().pathname;
 
   return (
-    <div className="dock dock-md md:dock-xl lg:hidden">
+    <div className="dock dock-md md:dock-xl lg:hidden bg-base-200">
       {menu.map((item) => (
         <Link
           key={item.title}
