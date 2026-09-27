@@ -12,6 +12,11 @@ export const SOCIAL_DATA = [
     link: "https://www.linkedin.com/in/reza-shahraki/",
   },
   {
+    title: "تماس",
+    image: `${BASE_URL}images/social-media/phone.svg`,
+    link: "tel:09172255301",
+  },
+  {
     title: "تلگرام",
     image: `${BASE_URL}images/social-media/telegram.svg`,
     link: "https://t.me/hopedeveloper08",

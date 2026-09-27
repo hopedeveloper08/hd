@@ -7,7 +7,7 @@ export default function CTA() {
       className="
         mt-2
         flex gap-8 mx-auto
-        *:btn *:btn-lg *:md:btn-xl *:rounded-full
+        *:btn *:btn-md *:md:btn-lg *:lg:btn-xl *:rounded-full
         *:hover:shadow-md *:hover:shadow-accent
         *:hover:-translate-y-1
         *:hover:scale-110 *:transition-all *:duration-700

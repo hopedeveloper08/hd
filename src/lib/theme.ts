@@ -1,12 +1,7 @@
 function themeInitialization(): void {
   const savedTheme = localStorage.theme;
 
-  const theme =
-    savedTheme === "dark" || savedTheme === "light"
-      ? savedTheme
-      : window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+  const theme = savedTheme ? savedTheme : "dark";
 
   document.documentElement.setAttribute("data-theme", theme);
   localStorage.setItem("theme", theme);

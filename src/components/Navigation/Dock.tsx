@@ -13,8 +13,14 @@ export default function Dock() {
           to={item.link}
           className={item.link === pathname ? "dock-active" : ""}
         >
-          <item.Icon className="size-5 sm:size-6 md:size-7" />
-          <span className="dock-label text-sm sm:text-base md:text-lg">{item.title}</span>
+          {item.link === pathname ? (
+            <item.ActiveIcon className="size-5 sm:size-6 md:size-7 animate-fade-in-up" />
+          ) : (
+            <item.Icon className="size-5 sm:size-6 md:size-7" />
+          )}
+          <span className="dock-label text-sm sm:text-base md:text-lg">
+            {item.title}
+          </span>
         </Link>
       ))}
       <DockTheme />

@@ -5,7 +5,7 @@ export default function SocialMedia() {
     <div
       className="
         w-full
-        flex gap-12
+        flex gap-4 md:gap-8 lg:gap-12
       "
     >
       {SOCIAL_DATA.map((item) => (
@@ -13,7 +13,7 @@ export default function SocialMedia() {
           key={item.title}
           href={item.link}
           className="
-            size-12 md:size-14 lg:size-16
+            size-10 md:size-12 lg:size-16
             mx-auto
             transition-all
             hover:scale-120 
@@ -24,7 +24,9 @@ export default function SocialMedia() {
             "
         >
           <img src={item.image} alt={item.title} />
-          <span className="hidden transition-all group-hover:inline text-secondary">{item.title}</span>
+          <span className="hidden transition-all group-hover:inline text-secondary">
+            {item.title}
+          </span>
         </a>
       ))}
     </div>
