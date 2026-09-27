@@ -5,9 +5,9 @@ import { BASE_URL } from "../../../lib/constants";
 export default function SidebarHeader() {
   return (
     <div className="flex justify-between items-center">
-      <Link to={BASE_URL}>
+      <Link to="">
         <img
-          src="/logo.png"
+          src={`${BASE_URL}/logo.png`}
           alt="hopedeveloper"
           className="size-12"
           loading="lazy"

@@ -7,7 +7,6 @@ import {
   HiSquares2X2,
   HiOutlineSquares2X2,
 } from "react-icons/hi2";
-import { BASE_URL } from "./constants";
 
 type menuItem = {
   title: string;
@@ -21,18 +20,18 @@ export const menu: Array<menuItem> = [
     title: "صفحه‌اصلی",
     Icon: HiOutlineHome,
     ActiveIcon: HiHome,
-    link: `${BASE_URL}`,
+    link: '',
   },
   {
     title: "رزومه",
     Icon: HiOutlineDocument,
     ActiveIcon: HiDocument,
-    link: `${BASE_URL}resume`,
+    link: `resume`,
   },
   {
     title: "نمونه‌کارها",
     Icon: HiOutlineSquares2X2,
     ActiveIcon: HiSquares2X2,
-    link: `${BASE_URL}portfolio`,
+    link: `portfolio`,
   },
 ];

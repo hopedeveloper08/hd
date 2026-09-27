@@ -41,7 +41,7 @@ export default function Sidebar() {
               "
               data-tip={item.title}
             >
-              {item.link === pathname ? (
+              {`/${item.link}` === pathname ? (
                 <item.ActiveIcon className="size-7" />
               ) : (
                 <item.Icon className="size-7" />

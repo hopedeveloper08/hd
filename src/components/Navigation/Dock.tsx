@@ -3,7 +3,7 @@ import { menu } from "../../lib/menu";
 import DockTheme from "./components/DockTheme";
 
 export default function Dock() {
-  const pathname = useLocation().pathname;
+  const pathname = useLocation().pathname; 
 
   return (
     <div className="dock dock-md md:dock-xl lg:hidden bg-base-200">
@@ -11,9 +11,9 @@ export default function Dock() {
         <Link
           key={item.title}
           to={item.link}
-          className={item.link === pathname ? "dock-active" : ""}
+          className={`/${item.link}` === pathname ? "dock-active" : ""}
         >
-          {item.link === pathname ? (
+          {`/${item.link}` === pathname ? (
             <item.ActiveIcon className="size-5 sm:size-6 md:size-7 animate-fade-in-up" />
           ) : (
             <item.Icon className="size-5 sm:size-6 md:size-7" />

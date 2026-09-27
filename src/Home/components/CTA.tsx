@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import { BASE_URL } from "../../lib/constants";
 
 export default function CTA() {
   return (
@@ -13,10 +12,10 @@ export default function CTA() {
         *:hover:scale-110 *:transition-all *:duration-700
       "  
     >
-      <Link to={`${BASE_URL}resume`} className="btn-primary">
+      <Link to="resume" className="btn-primary">
         مشاهده رزومه
       </Link>
-      <Link to={`${BASE_URL}portfolio`} className="btn-secondary">
+      <Link to="portfolio" className="btn-secondary">
         مشاهده نمونه‌کارها
       </Link>
     </div>
