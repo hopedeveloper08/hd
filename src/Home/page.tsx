@@ -24,7 +24,7 @@ export default function Home() {
       <section
         className="
           basis-2/3 grow
-          flex flex-col max-lg:justify-around items-start gap-4
+          flex flex-col max-lg:justify-around items-start gap-4 lg:gap-8
           animate-fade-in-up
         "
       >

@@ -1,10 +1,11 @@
 import { Link } from "react-router";
 import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
+import { BASE_URL } from "../../../lib/constants";
 
 export default function SidebarHeader() {
   return (
     <div className="flex justify-between items-center">
-      <Link to="/">
+      <Link to={BASE_URL}>
         <img
           src="/logo.png"
           alt="hopedeveloper"
