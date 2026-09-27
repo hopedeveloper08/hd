@@ -7,7 +7,7 @@
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
-  name: "light";
+  name: "custom-light";
   default: true;
 
   --color-base-100: #e2e8f0;
