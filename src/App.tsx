@@ -2,18 +2,16 @@ import { useEffect, useRef } from "react";
 import { Outlet } from "react-router";
 
 import { themeInitialization } from "./lib/theme";
+import Sidebar from "./components/Navigation/Sidebar";
+import Dock from "./components/Navigation/Dock";
 
-import Dock from "./features/Navigation/Dock";
-import Sidebar from "./features/Navigation/Sidebar";
+
 
 function App() {
   const drawerRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     themeInitialization();
-
-    if (drawerRef.current)
-      drawerRef.current.checked = true
   }, []);
 
   return (
@@ -32,7 +30,7 @@ function App() {
       </div>
       <div className="block lg:hidden">
         <Dock />
-        <main className="p-4 bg-base-100">
+        <main className=" h-[calc(100vh-8rem)] p-4 bg-base-100">
           <Outlet />
         </main>
       </div>

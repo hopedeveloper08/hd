@@ -13,7 +13,7 @@ export default function Sidebar() {
         className="
           flex flex-col justify-between is-drawer-close:items-center
           min-h-full   
-           bg-linear-to-r from-base-200 to-base-300
+          bg-linear-to-r from-base-200 to-base-300
           is-drawer-close:w-18 is-drawer-open:w-64
           py-2 px-4
         "

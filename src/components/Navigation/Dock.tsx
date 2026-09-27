@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router";
 import { menu } from "../../lib/menu";
+import DockTheme from "./components/DockTheme";
 
 export default function Dock() {
   const pathname = useLocation().pathname;
@@ -16,6 +17,7 @@ export default function Dock() {
           <span className="dock-label text-sm sm:text-base md:text-lg">{item.title}</span>
         </Link>
       ))}
+      <DockTheme />
     </div>
   );
 }

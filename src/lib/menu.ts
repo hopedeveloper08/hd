@@ -26,9 +26,4 @@ export const menu: Array<menuItem> = [
     Icon: HiOutlineSquares2X2,
     link: "/projects",
   },
-  {
-    title: "ارتباط با من",
-    Icon: RiChatSmile3Line,
-    link: "/contact",
-  },
 ];
