@@ -47,6 +47,7 @@ Error generating stack: `+e.message+`
             `,children:[(0,z.jsx)(`img`,{src:e.image,alt:e.title}),(0,z.jsx)(`span`,{className:`hidden transition-all group-hover:inline text-secondary`,children:e.title})]},e.title))})}var Ea=`توسعه‌دهنده‌ای با علاقه به ساختن`,Da=`من رضا شهرکی، مهندس نرم‌افزار و توسعه‌دهنده فرانت‌اند هستم. با React و ابزارهای مدرن وب، به ساخت نرم‌افزارهای کاربردی و تجربه‌های تعاملی علاقه‌مندم، محصولاتی که فقط زیبا نیستند، بلکه برای استفاده واقعی ساخته می‌شوند.`,Oa=[`مهندس نرم‌افزار`,2e3,`توسعه‌دهنده فرانت‌اند`,2e3,`React.js/Next.js Developer`,2e3,`سازنده وب‌اپلیکیشن‌های مدرن`,2e3];function ka(){return(0,z.jsx)(`p`,{className:`text-base lg:text-xl\r
             bg-linear-to-l from-base-content to-secondary from-55%\r
             bg-clip-text text-transparent\r
+            text-justify\r
           `,children:Da})}function Aa(){return(0,z.jsx)(`h1`,{className:`\r
         font-bold text-4xl md:text-5xl\r
         pt-2\r
