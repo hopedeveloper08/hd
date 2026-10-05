@@ -1,0 +1,18 @@
+export const themeItems = [
+  "Spotify",
+  "Mintlify",
+  "Dark",
+  "Black",
+  "Claude",
+  "Corporate",
+  "Ghibli",
+  "Gourmet",
+  "Luxury",
+  "Pastel",
+  "Perplexity",
+  "Shadcn",
+  "Slack",
+  "Soft",
+  "Valorant",
+  "Vscode",
+]

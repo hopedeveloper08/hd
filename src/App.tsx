@@ -30,6 +30,13 @@ function App() {
     }, 100);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const theme = localStorage.getItem("theme")
+    if (theme)
+      document.documentElement.setAttribute("data-theme", theme)
+  }, [])
+  
+
   return (
     <>
       <Navbar />

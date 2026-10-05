@@ -1,20 +1,18 @@
-import { BASE_URL } from "../../lib/constants";
-
 export const MenuItems = [
   {
     title: 'خانه',
-    path: BASE_URL,
+    path: "/",
   },
   {
     title: 'درباره‌ من',
-    path: `${BASE_URL}about`,
+    path: "/about",
   },
   {
     title: 'نمونه‌ کارها',
-    path: `${BASE_URL}portfolio`
+    path: "/portfolio",
   },
   {
     title: 'ارتباط‌ با من',
-    path: `${BASE_URL}contact`,
+    path: "/contact",
   }
 ]

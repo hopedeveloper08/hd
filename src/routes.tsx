@@ -1,14 +1,12 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
 
-import { BASE_URL } from "./lib/constants";
-
 import Main from "./app/main/page";
 
 const router = createBrowserRouter(
   [
     {
-      path: BASE_URL,
+      path: "/",
       Component: App,
       children: [
         {
