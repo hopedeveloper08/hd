@@ -2,112 +2,13 @@
 
 @import "vazirmatn/Vazirmatn-font-face.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@plugin "daisyui";
-
-@plugin "daisyui/theme" {
-  name: "custom-light";
-  default: true;
-
-  --color-base-100: #e2e8f0;
-  --color-base-200: #f1f5f9;
-  --color-base-300: #ffffff;
-  --color-base-content: #0f172a;
-
-  --color-primary: #10b981;
-  --color-primary-content: #ffffff;
-
-  --color-secondary: #64748b;
-  --color-secondary-content: #ffffff;
-
-  --color-accent: #7dd3fc;
-  --color-accent-content: #0c4a6e;
-
-  --color-success: #16a34a;
-  --color-success-content: #ffffff;
-
-  --color-error: #dc2626;
-  --color-error-content: #ffffff;
-
-  --color-warning: #f59e0b;
-  --color-warning-content: #451a03;
+@plugin "flyonui" {
+  themes: all;
 }
+@import "flyonui/variants.css";
+@source "./node_modules/flyonui/flyonui.js"; 
 
-@plugin "daisyui/theme" {
-  name: "dark";
-
-  --color-base-100: #334155;
-  --color-base-200: #1e293b;
-  --color-base-300: #0f172a;
-  --color-base-content: #f1f5f9;
-
-  --color-primary: #34d399;
-  --color-primary-content: #052e1f;
-
-  --color-secondary: #94a3b8;
-  --color-secondary-content: #0f172a;
-
-  --color-accent: #7dd3fc;
-  --color-accent-content: #082f49;
-
-  --color-success: #4ade80;
-  --color-success-content: #052e1f;
-
-  --color-error: #f87171;
-  --color-error-content: #450a0a;
-
-  --color-warning: #fbbf24;
-  --color-warning-content: #451a03;
-}
-
-@layer base {
-  html {
-    font-family: Vazirmatn;
-  }
-  body {
-    background-color: var(--color-base-100);
-    color: var(--color-base-content);
-  }
-}
-
-@utility container {
-  @apply mx-auto px-4;
-}
-
-@theme {
-  --animate-fade-in-up: fadeInUp 1s ease-out both;
-  --animate-float: float 4s ease-in-out infinite;
-
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(32px);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-16px);
-    }
-  }
-}
-
-@layer components {
-  .center {
-    @apply flex justify-center items-center;
-  }
-  .drawer-btn {
-    @apply btn btn-circle btn-ghost hover:bg-primary/10 hover:border-primary/50;
-  }
+html {
+  font-family: Vazirmatn, sans-serif;
 }
