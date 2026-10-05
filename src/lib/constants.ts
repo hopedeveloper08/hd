@@ -1,2 +1,1 @@
-// URLs
-export const BASE_URL = "/hd/"
+export const BASE_URL = "/"
