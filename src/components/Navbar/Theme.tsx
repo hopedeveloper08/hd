@@ -1,7 +1,22 @@
+import { useState, type ChangeEvent } from "react";
+
 import { HiMiniChevronDown } from "react-icons/hi2";
+
 import { themeItems } from "./themeItems";
 
 export default function Theme() {
+  const [theme, setTheme] = useState(localStorage.getItem("theme"));
+
+  const handleThemeChange = (
+    event: ChangeEvent<HTMLInputElement>,
+  ) => {
+    const newTheme = event.target.value;
+
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    event.target.checked = true;
+  };
+
   return (
     <div className="dropdown relative inline-flex [--auto-close:inside]">
       <button
@@ -26,10 +41,11 @@ export default function Theme() {
             <input
               type="radio"
               name="theme-dropdown"
-              className="theme-controller btn btn-text w-full justify-start"
+              className="theme-controller capitalize btn btn-text w-full justify-start"
               aria-label={item}
-              value={item.toLowerCase()}
-              onClick={() => localStorage.setItem("tehme", item)}
+              value={item}
+              onChange={handleThemeChange}
+              checked={item === theme}
             />
           </li>
         ))}

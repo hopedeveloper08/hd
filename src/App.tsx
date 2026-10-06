@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router";
 
 import Navbar from "./components/Navbar/Navbar";
+import { themeChange } from "theme-change";
 
 async function loadFlyonUI() {
   return import("flyonui/flyonui");
