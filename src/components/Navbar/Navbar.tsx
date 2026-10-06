@@ -19,13 +19,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50">
-      <div
-        className={`navbar lg:container lg:max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8
+    <header
+      className={`sticky top-0 z-50
           transition-all duration-300 ease-in-out
           ${isScrolling ? "bg-base-200 shadow-md shadow-base-300/20 backdrop-blur-sm" : "bg-transparent shadow-none"}
-        `}
-      >
+      `}
+    >
+      <div className="navbar lg:container lg:max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-transparent">
         <div className="navbar-start w-fit">
           <Brand />
         </div>
