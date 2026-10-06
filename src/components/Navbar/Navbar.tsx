@@ -1,12 +1,31 @@
+import { useEffect, useState } from "react";
+
 import Brand from "./Brand";
 import DropdownMenu from "./DropdownMenu";
 import Navs from "./Navs";
 import Theme from "./Theme";
 
 export default function Navbar() {
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="sticky">
-      <div className="navbar lg:container py-6 px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50">
+      <div
+        className={`navbar lg:container lg:max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8
+          transition-all duration-300 ease-in-out
+          ${isScrolling ? "bg-base-200 shadow-md shadow-base-300/20 backdrop-blur-sm" : "bg-transparent shadow-none"}
+        `}
+      >
         <div className="navbar-start w-fit">
           <Brand />
         </div>

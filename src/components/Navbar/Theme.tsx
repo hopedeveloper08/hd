@@ -29,7 +29,7 @@ export default function Theme() {
       </button>
 
       <ul
-        className="dropdown-menu dropdown-open:opacity-100 hidden min-w-60 max-h-120 overflow-auto"
+        className="dropdown-menu bg-base-200 dropdown-open:opacity-100 hidden min-w-60 max-h-120 overflow-auto"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="navbar-theme-dropdown"

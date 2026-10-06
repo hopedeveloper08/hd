@@ -1,5 +1,9 @@
 export default function Main() {
   return (
-    <div>Main</div>
+    <div>
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
+    </div>
   )
 }
