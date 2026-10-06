@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 
@@ -26,9 +26,14 @@ export default function DropdownMenu() {
       >
         {MenuItems.map((item) => (
           <li key={item.title}>
-            <Link className="dropdown-item" to={item.path}>
+            <NavLink
+              className={({ isActive }) =>
+                (isActive ? "dropdown-active font-medium dropdown-item" : "dropdown-item")
+              }
+              to={item.path}
+            >
               {item.title}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>

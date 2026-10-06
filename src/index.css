@@ -2,13 +2,16 @@
 
 @import "vazirmatn/Vazirmatn-font-face.css";
 
-
 @plugin "flyonui" {
   themes: all;
 }
+
 @import "flyonui/variants.css";
-@source "./node_modules/flyonui/flyonui.js"; 
 
 html {
   font-family: Vazirmatn, sans-serif;
+}
+
+@utility container {
+  @apply mx-auto;
 }

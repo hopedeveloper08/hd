@@ -1,20 +1,17 @@
+import { HiMiniChevronDown } from "react-icons/hi2";
+import { themeItems } from "./themeItems";
 import { useState, type ChangeEvent } from "react";
 
-import { HiMiniChevronDown } from "react-icons/hi2";
-
-import { themeItems } from "./themeItems";
-
 export default function Theme() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme"));
-
-  const handleThemeChange = (
-    event: ChangeEvent<HTMLInputElement>,
-  ) => {
-    const newTheme = event.target.value;
-
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "mintlify",
+  );
+  
+  const handleThemeChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newTheme = e.target.value;
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    event.target.checked = true;
+    document.documentElement.setAttribute("data-theme", newTheme);
   };
 
   return (
@@ -25,11 +22,12 @@ export default function Theme() {
         className="dropdown-toggle btn btn-primary btn-gradient"
         aria-haspopup="menu"
         aria-expanded="false"
-        aria-label="Dropdown"
+        aria-label="Theme"
       >
         تم
         <HiMiniChevronDown className="size-4" />
       </button>
+
       <ul
         className="dropdown-menu dropdown-open:opacity-100 hidden min-w-60 max-h-120 overflow-auto"
         role="menu"
@@ -41,11 +39,17 @@ export default function Theme() {
             <input
               type="radio"
               name="theme-dropdown"
-              className="theme-controller capitalize btn btn-text w-full justify-start"
-              aria-label={item}
+              className="theme-controller capitalize btn btn-text w-full justify-end"
+              aria-label={`${item}${
+                item === "mintlify"
+                  ? " (Default light)"
+                  : item === "spotify"
+                    ? " (Default dark)"
+                    : ""
+              }`}
               value={item}
-              onChange={handleThemeChange}
-              checked={item === theme}
+              onChange={(e) => handleThemeChange(e)}
+              defaultChecked={item === theme}
             />
           </li>
         ))}
