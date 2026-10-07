@@ -23,7 +23,7 @@ export default function Content() {
       </h1>
 
       {/* Description */}
-      <p className="max-w-2xl leading-8 text-base-content/90 text-base sm:text-lg text-justify">
+      <p className="max-w-2xl leading-8 text-base sm:text-lg text-justify">
         <ShinyText
           text={`
             یک مهندس نرم‌افزار و توسعه‌دهنده وب‌اپلیکیشن هستم که به ساخت محصولات
