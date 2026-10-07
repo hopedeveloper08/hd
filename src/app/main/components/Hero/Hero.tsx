@@ -1,17 +1,25 @@
+import { Pointer } from "../../../../components/ui/pointer";
 import { BASE_URL } from "../../../../lib/constants";
 import Content from "./Content";
-import Pointer from "./Pointer";
+import PointerImage from "./PointerImage";
 
 export default function Hero() {
   return (
     <section className="container relative mx-auto max-w-7xl px-4 pt-20 sm:px-6 md:pt-28 lg:px-8 xl:pt-36">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <Content />
-        <div className="text-left max-lg:hidden">
+        <div className="text-left max-lg:hidden z-40">
           <img src={`${BASE_URL}hero-avatar.png`} alt="avatar" />
+          <Pointer>
+            <img
+              src={`${BASE_URL}images/pointers/heart.svg`}
+              alt="pointer"
+              className="size-12 animate-heartbeat"
+            />
+          </Pointer>
         </div>
       </div>
-      <Pointer />
+      <PointerImage />
       <img
         src={`${BASE_URL}hero-avatar.png`}
         alt="avatar"

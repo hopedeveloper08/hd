@@ -7,14 +7,14 @@ export const SOCIAL_DATA = [
     link: "https://github.com/hopedeveloper08",
   },
   {
-    title: "لینکدین",
-    image: `${BASE_URL}images/social-media/linkedin.svg`,
-    link: "https://www.linkedin.com/in/reza-shahraki/",
-  },
-  {
     title: "تماس و پیامک",
     image: `${BASE_URL}images/social-media/phone.svg`,
     link: "tel:09172255301",
+  },
+  {
+    title: "لینکدین",
+    image: `${BASE_URL}images/social-media/linkedin.svg`,
+    link: "https://www.linkedin.com/in/reza-shahraki/",
   },
   {
     title: "تلگرام",

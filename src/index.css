@@ -9,6 +9,8 @@
 @import "flyonui/variants.css";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "tailwindcss-intersect";
+@plugin "tailwindcss-motion";
 
 html {
   font-family: Vazirmatn, sans-serif;
@@ -16,4 +18,83 @@ html {
 
 @utility container {
   @apply mx-auto;
+}
+
+@theme inline {
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+  --animate-waving-hand: waving-hand 1.5s ease-in-out infinite;
+  @keyframes waving-hand {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+
+    10% {
+      transform: rotate(14deg);
+    }
+
+    20% {
+      transform: rotate(-8deg);
+    }
+
+    30% {
+      transform: rotate(14deg);
+    }
+
+    40% {
+      transform: rotate(-4deg);
+    }
+
+    50% {
+      transform: rotate(10deg);
+    }
+
+    60%,
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+--animate-heartbeat: heartbeat 1s ease-in-out infinite;
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.18);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.18);
+  }
+
+  56%,
+  100% {
+    transform: scale(1);
+  }
+}
 }

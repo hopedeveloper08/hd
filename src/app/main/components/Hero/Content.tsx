@@ -1,3 +1,5 @@
+import { Pointer } from "../../../../components/ui/pointer";
+import { BASE_URL } from "../../../../lib/constants";
 import SocialDock from "./SocialDock";
 
 export default function Content() {
@@ -12,6 +14,13 @@ export default function Content() {
           رضا شهرکی
         </span>{" "}
         هستم؛
+        <Pointer>
+          <img
+            src={`${BASE_URL}images/pointers/waving-hand.svg`}
+            alt="pointer"
+            className="size-16 animate-waving-hand"
+          />
+        </Pointer>
       </h1>
 
       {/* Role */}

@@ -1,4 +1,4 @@
-export default function Pointer() {
+export default function PointerImage() {
   return (
     <svg
       viewBox="60 -50 350 200"
