@@ -1,3 +1,5 @@
+import SocialDock from "./SocialDock";
+
 export default function Content() {
   return (
     <div className="max-w-3xl">
@@ -25,11 +27,18 @@ export default function Content() {
         نرم‌افزارهایی تبدیل کنم که علاوه بر ظاهر حرفه‌ای، برای استفاده واقعی و
         حل مسائل کاربران طراحی شده‌اند.
       </p>
-      <div className="flex gap-2 md:gap-4 lg:gap-6 xl:gap-8 mt-6">
-        <button className="btn btn-primary btn-gradient btn-lg md:btn-xl">
+
+      {/* CTA */}
+      <div className="flex gap-2 md:gap-4 lg:gap-6 xl:gap-8 mt-2 xl:mt-6">
+        <button className="btn btn-primary btn-gradient btn-lg lg:btn-xl">
           مشاهده نمونه کارها
         </button>
-        <button className="btn btn-outline btn-lg md:btn-xl">درباره من</button>
+        <button className="btn btn-outline btn-lg lg:btn-xl">درباره من</button>
+      </div>
+
+      {/* Social */}
+      <div className="xl:mt-12 md:w-20">
+        <SocialDock />
       </div>
     </div>
   );

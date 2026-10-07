@@ -1,4 +1,4 @@
-import { BASE_URL } from "../lib/constants";
+import { BASE_URL } from "../../../../lib/constants";
 
 export const SOCIAL_DATA = [
   {
@@ -12,7 +12,7 @@ export const SOCIAL_DATA = [
     link: "https://www.linkedin.com/in/reza-shahraki/",
   },
   {
-    title: "تماس",
+    title: "تماس و پیامک",
     image: `${BASE_URL}images/social-media/phone.svg`,
     link: "tel:09172255301",
   },

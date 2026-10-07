@@ -7,6 +7,8 @@
 }
 
 @import "flyonui/variants.css";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 html {
   font-family: Vazirmatn, sans-serif;
