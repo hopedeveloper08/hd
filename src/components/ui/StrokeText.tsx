@@ -1,15 +1,23 @@
-'use client';
+"use client";
 
-import { type CSSProperties, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {
+  type CSSProperties,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export type StrokeTextTrigger = 'mount' | 'hover' | 'scroll' | 'loop';
-export type StrokeTextFillMode = 'wipe' | 'fade' | 'none';
+export type StrokeTextTrigger = "mount" | "hover" | "scroll" | "loop";
+export type StrokeTextFillMode = "wipe" | "fade" | "none";
 
 export interface StrokeTextProps {
   text?: string;
@@ -37,24 +45,23 @@ interface StrokeTextBox {
   height: number;
 }
 
-const DEFAULT_TEXT = 'Draw Attention';
+const DEFAULT_TEXT = "Draw Attention";
 
 const StrokeText = ({
   text = DEFAULT_TEXT,
-  strokeColor = '#A78BFA',
   strokeWidth = 1.4,
   drawDuration = 1.6,
   fillDelay = 0.2,
   stagger = 0.05,
-  ease = 'power2.out',
-  trigger = 'mount',
-  fillMode = 'wipe',
+  ease = "power2.out",
+  trigger = "mount",
+  fillMode = "wipe",
   fontSize = 128,
   fontWeight = 800,
   letterSpacing = -4,
   reverse = false,
-  className = '',
-  style = {}
+  className = "",
+  style = {},
 }: StrokeTextProps) => {
   const rootRef = useRef<HTMLSpanElement | null>(null);
   const strokeTextRef = useRef<SVGTextElement | null>(null);
@@ -63,9 +70,9 @@ const StrokeText = ({
   const [box, setBox] = useState<StrokeTextBox | null>(null);
 
   const rawId = useId();
-  const wipeId = `stroke-text-wipe-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
+  const wipeId = `stroke-text-wipe-${rawId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
 
-  const characters = useMemo(() => Array.from(String(text ?? '')), [text]);
+  const characters = useMemo(() => Array.from(String(text ?? "")), [text]);
 
   const dash = Math.max(fontSize * 7, 200);
 
@@ -90,21 +97,21 @@ const StrokeText = ({
         x: bbox.x - pad,
         y: bbox.y - pad,
         width: bbox.width + pad * 2,
-        height: bbox.height + pad * 2
+        height: bbox.height + pad * 2,
       };
 
-      setBox(prev =>
+      setBox((prev) =>
         prev &&
         Math.abs(prev.x - next.x) < 0.5 &&
         Math.abs(prev.width - next.width) < 0.5 &&
         Math.abs(prev.y - next.y) < 0.5
           ? prev
-          : next
+          : next,
       );
     };
 
     measure();
-    if (typeof document !== 'undefined' && document.fonts?.ready) {
+    if (typeof document !== "undefined" && document.fonts?.ready) {
       document.fonts.ready.then(measure).catch(() => {});
     }
 
@@ -115,17 +122,21 @@ const StrokeText = ({
 
   useEffect(() => {
     const root = rootRef.current;
-    if (typeof window === 'undefined' || !root || !box) return undefined;
+    if (typeof window === "undefined" || !root || !box) return undefined;
 
-    const strokes = gsap.utils.toArray(root.querySelectorAll('[data-stroke-char]'));
-    const fills = gsap.utils.toArray(root.querySelectorAll('[data-fill-char]'));
+    const strokes = gsap.utils.toArray(
+      root.querySelectorAll("[data-stroke-char]"),
+    );
+    const fills = gsap.utils.toArray(root.querySelectorAll("[data-fill-char]"));
     const wipe = wipeRectRef.current;
     if (!strokes.length) return undefined;
 
-    const fillEnabled = fillMode !== 'none';
-    const useWipe = fillEnabled && fillMode === 'wipe';
+    const fillEnabled = fillMode !== "none";
+    const useWipe = fillEnabled && fillMode === "wipe";
     const fillDuration = Math.max(0.4, drawDuration * 0.5);
-    const staggerConfig: number | gsap.StaggerVars = reverse ? { each: stagger, from: 'end' as const } : stagger;
+    const staggerConfig: number | gsap.StaggerVars = reverse
+      ? { each: stagger, from: "end" as const }
+      : stagger;
     const targets = [...strokes, ...fills, wipe].filter(Boolean);
 
     const setStart = () => {
@@ -139,10 +150,13 @@ const StrokeText = ({
       gsap.killTweensOf(targets);
       gsap.set(strokes, { strokeDasharray: dash, strokeDashoffset: 0 });
       gsap.set(fills, { opacity: fillEnabled ? 1 : 0 });
-      if (wipe) gsap.set(wipe, { attr: { width: fillEnabled ? box.width : 0 } });
+      if (wipe)
+        gsap.set(wipe, { attr: { width: fillEnabled ? box.width : 0 } });
     };
 
-    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (prefersReducedMotion) {
       setEnd();
       return () => gsap.killTweensOf(targets);
@@ -152,24 +166,42 @@ const StrokeText = ({
       setStart();
       const tl = gsap.timeline({
         paused: true,
-        repeat: trigger === 'loop' ? -1 : 0,
-        repeatDelay: trigger === 'loop' ? 0.9 : 0,
-        defaults: { overwrite: 'auto' }
+        repeat: trigger === "loop" ? -1 : 0,
+        repeatDelay: trigger === "loop" ? 0.9 : 0,
+        defaults: { overwrite: "auto" },
       });
 
-      tl.to(strokes, { strokeDashoffset: 0, duration: drawDuration, ease, stagger: staggerConfig }, 0);
+      tl.to(
+        strokes,
+        {
+          strokeDashoffset: 0,
+          duration: drawDuration,
+          ease,
+          stagger: staggerConfig,
+        },
+        0,
+      );
 
       if (useWipe && wipe) {
         tl.to(
           wipe,
-          { attr: { width: box.width }, duration: fillDuration, ease: 'power2.inOut' },
-          drawDuration + fillDelay
+          {
+            attr: { width: box.width },
+            duration: fillDuration,
+            ease: "power2.inOut",
+          },
+          drawDuration + fillDelay,
         );
       } else if (fillEnabled) {
         tl.to(
           fills,
-          { opacity: 1, duration: fillDuration, ease: 'power2.out', stagger: staggerConfig },
-          drawDuration + fillDelay
+          {
+            opacity: 1,
+            duration: fillDuration,
+            ease: "power2.out",
+            stagger: staggerConfig,
+          },
+          drawDuration + fillDelay,
         );
       }
 
@@ -180,23 +212,23 @@ const StrokeText = ({
     let scrollTrigger: ReturnType<typeof ScrollTrigger.create> | null = null;
     let removeHover: (() => void) | null = null;
 
-    if (trigger === 'hover') {
+    if (trigger === "hover") {
       setEnd();
       const play = () => {
         timeline?.kill();
         timeline = build();
         timeline.play(0);
       };
-      root.addEventListener('pointerenter', play);
-      removeHover = () => root.removeEventListener('pointerenter', play);
+      root.addEventListener("pointerenter", play);
+      removeHover = () => root.removeEventListener("pointerenter", play);
     } else {
       timeline = build();
-      if (trigger === 'scroll') {
+      if (trigger === "scroll") {
         scrollTrigger = ScrollTrigger.create({
           trigger: root,
-          start: 'top 82%',
+          start: "top 82%",
           once: true,
-          onEnter: () => timeline?.play(0)
+          onEnter: () => timeline?.play(0),
         });
       } else {
         timeline.play(0);
@@ -209,9 +241,21 @@ const StrokeText = ({
       timeline?.kill();
       gsap.killTweensOf(targets);
     };
-  }, [box, dash, drawDuration, fillDelay, stagger, ease, trigger, fillMode, reverse]);
+  }, [
+    box,
+    dash,
+    drawDuration,
+    fillDelay,
+    stagger,
+    ease,
+    trigger,
+    fillMode,
+    reverse,
+  ]);
 
-  const viewBox = box ? `${box.x} ${box.y} ${box.width} ${box.height}` : `0 ${-fontSize} 600 ${fontSize * 1.3}`;
+  const viewBox = box
+    ? `${box.x} ${box.y} ${box.width} ${box.height}`
+    : `0 ${-fontSize} 600 ${fontSize * 1.3}`;
 
   return (
     <span
@@ -244,12 +288,12 @@ const StrokeText = ({
 
         <text
           ref={strokeTextRef}
-          className="select-none stroke-1 text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+          className="select-none stroke-primary text-xl sm:text-2xl md:text-3xl lg:text-4xl"
           x="0"
           y="0"
           fill="none"
-          stroke={strokeColor}
-          strokeWidth={strokeWidth}
+          stroke="none"
+          strokeWidth={0.5}
           strokeLinejoin="round"
           strokeLinecap="round"
         >

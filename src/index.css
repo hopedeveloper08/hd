@@ -8,14 +8,13 @@
 
 @import "flyonui/variants.css";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 html {
   font-family: Vazirmatn, sans-serif;
 }
 
 @utility container {
-  @apply mx-auto;
+  @apply mx-auto max-w-7xl px-4;
 }
 
 @theme inline {
@@ -52,28 +51,28 @@ html {
     }
   }
 
---animate-heartbeat: heartbeat 1s ease-in-out infinite;
-@keyframes heartbeat {
-  0%,
-  100% {
-    transform: scale(1);
-  }
+  --animate-heartbeat: heartbeat 1s ease-in-out infinite;
+  @keyframes heartbeat {
+    0%,
+    100% {
+      transform: scale(1);
+    }
 
-  14% {
-    transform: scale(1.18);
-  }
+    14% {
+      transform: scale(1.18);
+    }
 
-  28% {
-    transform: scale(1);
-  }
+    28% {
+      transform: scale(1);
+    }
 
-  42% {
-    transform: scale(1.18);
-  }
+    42% {
+      transform: scale(1.18);
+    }
 
-  56%,
-  100% {
-    transform: scale(1);
+    56%,
+    100% {
+      transform: scale(1);
+    }
   }
-}
 }

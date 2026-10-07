@@ -5,6 +5,7 @@ import { BASE_URL } from "../../../../lib/constants";
 import SocialDock from "./SocialDock";
 import BlurText from "../../../../components/ui/BlurText";
 import ShinyText from "../../../../components/ui/ShinyText";
+import AnimatedContent from "../../../../components/ui/AnimatedContent";
 
 export default function Content() {
   return (
@@ -23,17 +24,19 @@ export default function Content() {
       </h1>
 
       {/* Description */}
-      <p className="max-w-2xl leading-8 text-base sm:text-lg text-justify">
-        <ShinyText
-          text={`
+      <AnimatedContent direction="horizontal" reverse duration={3}>
+        <p className="max-w-2xl leading-8 text-base sm:text-lg text-justify">
+          <ShinyText
+            text={`
             یک مهندس نرم‌افزار و توسعه‌دهنده وب‌اپلیکیشن هستم که به ساخت محصولات
             کاربردی، قابل استفاده و تجربه‌های تعاملی علاقه دارم. با استفاده از
             React.js/Next.js و ابزارهای مدرن وب، تلاش می‌کنم ایده‌ها را به
             نرم‌افزارهایی تبدیل کنم که علاوه بر ظاهر حرفه‌ای، برای استفاده واقعی و
             حل مسائل کاربردی طراحی شده‌اند.
           `}
-        />
-      </p>
+          />
+        </p>
+      </AnimatedContent>
 
       {/* Role */}
       <h2 className="mt-3 leading-relaxed font-semibold text-xl sm:text-xl md:text-2xl text-info">
