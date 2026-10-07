@@ -1,4 +1,6 @@
+import StrokeText from "../../../../components/StrokeText";
 import { Pointer } from "../../../../components/ui/pointer";
+import TextType from "../../../../components/ui/TextType";
 import { BASE_URL } from "../../../../lib/constants";
 import SocialDock from "./SocialDock";
 
@@ -10,8 +12,11 @@ export default function Content() {
         سلام،
         <br />
         من{" "}
-        <span className="text-error text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-          رضا شهرکی
+        <span>
+          <StrokeText
+            text="رضا شهرکی"
+            fontSize={60}
+          />
         </span>{" "}
         هستم؛
         <Pointer>
@@ -25,7 +30,14 @@ export default function Content() {
 
       {/* Role */}
       <h2 className="mt-2 leading-relaxed font-semibold text-xl sm:text-xl md:text-2xl text-primary">
-        توسعه‌دهنده وب‌اپلیکیشن
+        <TextType
+          text={[
+            "مهندس نرم‌افزار",
+            "توسعه‌دهنده وب‌اپلیکیشن",
+            "توسعه‌دهنده فرانت‌اند",
+            "توسعه‌دهنده React.js/Next.js",
+          ]}
+        />
       </h2>
 
       {/* Description */}
