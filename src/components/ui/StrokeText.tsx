@@ -226,13 +226,13 @@ const StrokeText = ({
   return (
     <span
       ref={rootRef}
-      className={`inline leading-0 ${className}`.trim()}
+      className={`inline max-w-[50%] max-h-fit leading-0 ${className}`.trim()}
       style={style}
       role="img"
       aria-label={String(text ?? "")}
     >
       <svg
-        className="inline"
+        className="inline max-w-[50%] max-h-fit"
         style={{ height: `${Math.round(fontSize * 1.3)}px` }}
         viewBox={viewBox}
         preserveAspectRatio="xMidYMid meet"
@@ -254,7 +254,7 @@ const StrokeText = ({
 
         <text
           ref={strokeTextRef}
-          className="select-none stroke-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+          className="select-none stroke-1 text-xl sm:text-2xl md:text-3xl lg:text-4xl"
           x="0"
           y="0"
           fill="none"
@@ -271,7 +271,7 @@ const StrokeText = ({
         </text>
 
         <text
-          className="select-none fill-error stroke-none text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+          className="select-none fill-primary stroke-none text-xl sm:text-2xl md:text-3xl lg:text-4xl"
           x="0"
           y="0"
           stroke="none"

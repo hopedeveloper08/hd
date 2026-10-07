@@ -51,7 +51,7 @@ export function Marquee({
           "flex-row": !vertical,
           "flex-col": vertical,
         },
-        className
+        className,
       )}
     >
       {Array(repeat)
@@ -62,13 +62,13 @@ export function Marquee({
             className={cn("flex shrink-0 justify-around gap-(--gap)", {
               "animate-marquee flex-row": !vertical,
               "animate-marquee-vertical flex-col": vertical,
-              "group-hover:[animation-play-state:paused]": pauseOnHover,
-              "[animation-direction:reverse]": reverse,
+              "group-hover:paused": pauseOnHover,
+              "shimmer-reverse": reverse,
             })}
           >
             {children}
           </div>
         ))}
     </div>
-  )
+  );
 }
