@@ -3,7 +3,7 @@ import { logoItems } from "./logoItems";
 
 export default function Logos() {
   return (
-    <section dir="ltr" className="mt-4 sm:mt-6 md:mt-8 lg:mt-12 xl:mt-16">
+    <section dir="ltr" className="mt-12 sm:mt-14 md:mt-16 lg:mt-18 xl:mt-20">
       <LogoLoop
         logos={logoItems}
         speed={40}

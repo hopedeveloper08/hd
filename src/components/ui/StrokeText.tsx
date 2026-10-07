@@ -42,7 +42,6 @@ const DEFAULT_TEXT = 'Draw Attention';
 const StrokeText = ({
   text = DEFAULT_TEXT,
   strokeColor = '#A78BFA',
-  fillColor = '#F8FAFC',
   strokeWidth = 1.4,
   drawDuration = 1.6,
   fillDelay = 0.2,
@@ -69,15 +68,6 @@ const StrokeText = ({
   const characters = useMemo(() => Array.from(String(text ?? '')), [text]);
 
   const dash = Math.max(fontSize * 7, 200);
-
-  const fontStyle = useMemo<CSSProperties>(
-    () => ({
-      fontSize: `${fontSize}px`,
-      fontWeight,
-      letterSpacing: `${letterSpacing}px`
-    }),
-    [fontSize, fontWeight, letterSpacing]
-  );
 
   useLayoutEffect(() => {
     const node = strokeTextRef.current;

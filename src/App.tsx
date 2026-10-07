@@ -10,10 +10,10 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <>
+    <div className="relative">
       <Navbar />
       <Outlet />
-    </>
+    </div>
   );
 }
 

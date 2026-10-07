@@ -9,8 +9,6 @@
 @import "flyonui/variants.css";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "tailwindcss-intersect";
-@plugin "tailwindcss-motion";
 
 html {
   font-family: Vazirmatn, sans-serif;
