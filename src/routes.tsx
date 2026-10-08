@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import App from "./App";
 
 import Main from "./app/main/page";
+import Portfolio from "./app/portfolio/page";
 
 const router = createBrowserRouter(
   [
@@ -12,6 +13,10 @@ const router = createBrowserRouter(
         {
           index: true,
           Component: Main,
+        },
+        {
+          path: "portfolio",
+          Component: Portfolio,
         },
       ],
     },

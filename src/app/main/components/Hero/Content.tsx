@@ -6,6 +6,7 @@ import SocialDock from "./SocialDock";
 import BlurText from "../../../../components/ui/BlurText";
 import ShinyText from "../../../../components/ui/ShinyText";
 import AnimatedContent from "../../../../components/ui/AnimatedContent";
+import { Link } from "react-router";
 
 export default function Content() {
   return (
@@ -52,9 +53,9 @@ export default function Content() {
 
       {/* CTA */}
       <div className="flex gap-2 md:gap-4 lg:gap-6 xl:gap-8 mt-2 xl:mt-6">
-        <button className="btn btn-primary btn-gradient btn-lg lg:btn-xl">
+        <Link to="portfolio" className="btn btn-primary btn-gradient btn-lg lg:btn-xl">
           مشاهده نمونه کارها
-        </button>
+        </Link>
         <button className="btn btn-outline btn-lg lg:btn-xl">درباره من</button>
       </div>
 

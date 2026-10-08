@@ -23,12 +23,12 @@ export default function Hero() {
         </div>
       </div>
       <PointerImage />
-      <AnimatedContent scale={0.2} duration={3}>
-        <img
-          src={`${BASE_URL}hero-avatar.png`}
-          alt="avatar"
-          className="w-[35%] absolute top-18 left-4 md:hidden animate-avatar"
-        />
+      <AnimatedContent
+        scale={0.2}
+        duration={3}
+        className="w-[35%] absolute top-18 left-4 md:hidden animate-avatar"
+      >
+        <img src={`${BASE_URL}hero-avatar.png`} alt="avatar" />
       </AnimatedContent>
     </section>
   );
