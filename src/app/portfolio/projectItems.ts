@@ -1,6 +1,6 @@
 import { BASE_URL } from "../../lib/constants";
 
-type Project = {
+export type Project = {
   title: string;
   slug: string;
   categories: string[];
@@ -19,7 +19,7 @@ export const projectItems: Project[] = [
   {
     title: "صرافی ارزهای دیجیتال",
     slug: "crypto-currency-exchange",
-
+ 
     categories: [
       "وب اپلیکیشن",
       "تحلیل داده",
@@ -82,6 +82,8 @@ export const projectItems: Project[] = [
       "مستندسازی سیستم با نمودارهای استاندارد UML"
     ],
 
-    year: 1403
+    year: 1403,
+
+    githubLink: "https://github.com/hopedeveloper08/cryptocurrency-exchange",
   },
 ]

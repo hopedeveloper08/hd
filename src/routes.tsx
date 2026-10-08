@@ -3,6 +3,8 @@ import App from "./App";
 
 import Main from "./app/main/page";
 import Portfolio from "./app/portfolio/page";
+import ProjectDetails from "./app/portfolio/ProjectDetails/page";
+import { projectItems } from "./app/portfolio/projectItems";
 
 const router = createBrowserRouter(
   [
@@ -17,6 +19,12 @@ const router = createBrowserRouter(
         {
           path: "portfolio",
           Component: Portfolio,
+        },
+        {
+          path: "/portfolio/:slug",
+          loader: ({ params }) =>
+            projectItems.find((item) => item.slug === params.slug),
+          Component: ProjectDetails,
         },
       ],
     },
