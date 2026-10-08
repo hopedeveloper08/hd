@@ -34,8 +34,8 @@ export default function ProjectDescription({ project }: { project: Project }) {
         </div>
 
         {/* Description */}
-        <div className="max-w-4xl">
-          <p className="text-sm leading-8 text-base-content/75 sm:text-base sm:leading-9">
+        <div>
+          <p className="text-sm leading-8 text-base-content/75 sm:text-base sm:leading-9 text-justify">
             {description}
           </p>
         </div>

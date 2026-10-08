@@ -49,8 +49,8 @@ export default function ProjectResults({ project }: { project: Project }) {
           </div>
 
           {/* Result content */}
-          <div className="max-w-4xl">
-            <p className="text-sm leading-8 text-base-content/80 sm:text-base sm:leading-9">
+          <div>
+            <p className="text-sm leading-8 text-base-content/80 sm:text-base sm:leading-9  text-justify">
               {results}
             </p>
           </div>

@@ -45,7 +45,7 @@ export default function ProjectHero({ project }: { project: Project }) {
 
           {/* Summary */}
           {problemStatement && (
-            <p className="max-w-2xl text-sm leading-8 text-base-content/70 sm:text-base sm:leading-9">
+            <p className="max-w-2xl text-sm leading-8 text-base-content/70 sm:text-base sm:leading-9 text-justify">
               {problemStatement}
             </p>
           )}

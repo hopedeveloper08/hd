@@ -72,7 +72,7 @@ export const logoItems = [
     href: "https://www.djangoproject.com/",
   },
   {
-    src: `${BASE_URL}images/technology/drf.png`,
+    src: `${BASE_URL}images/technology/django-rest-framework.png`,
     alt: "django rest framework",
     href: "https://www.django-rest-framework.org/",
   },
