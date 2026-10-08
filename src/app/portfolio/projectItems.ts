@@ -55,8 +55,9 @@ export const projectItems: Project[] = [
       "Pandas TA",
       "yfinance",
       "Bootstrap",
-      "HTML, CSS",
-      "Java Script",
+      "HTML",
+      "CSS",
+      "JavaScript",
       "UML",
       "Database Design"
     ],

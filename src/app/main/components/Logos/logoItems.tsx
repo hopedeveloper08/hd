@@ -82,6 +82,11 @@ export const logoItems = [
     href: "https://fastapi.tiangolo.com/",
   },
   {
+    src: `${BASE_URL}images/technology/pandas.svg`,
+    alt: "pandas",
+    href: "https://pandas.pydata.org/",
+  },
+  {
     src: `${BASE_URL}images/technology/chatgpt.svg`,
     alt: "chatgpt",
     href: "https://chatgpt.com/",
@@ -90,5 +95,10 @@ export const logoItems = [
     src: `${BASE_URL}images/technology/ollama.svg`,
     alt: "ollama",
     href: "https://ollama.com/",
+  },
+  {
+    src: `${BASE_URL}images/technology/uml.svg`,
+    alt: "UML",
+    href: "https://www.geeksforgeeks.org/system-design/unified-modeling-language-uml-introduction/",
   },
 ];
