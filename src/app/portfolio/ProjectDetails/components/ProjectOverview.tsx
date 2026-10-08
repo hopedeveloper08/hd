@@ -41,7 +41,7 @@ export default function ProjectOverview({ project }: { project: Project }) {
         {stats.map(({ label, value, suffix, icon: Icon }) => (
           <article
             key={label}
-            className="group flex min-w-0 items-center gap-3 rounded-2xl border border-base-300/70 bg-base-300/20 shadow-md shadow-base-300/60 p-4 transition-colors hover:border-primary/30 sm:gap-4 sm:p-5"
+            className="group flex min-w-0 items-center gap-3 rounded-2xl border border-base-300/70 bg-base-300/20 shadow-md shadow-base-300/60 p-4 transition-colors hover:border-primary/30 hover:shadow-primary/30 sm:gap-4 sm:p-5"
           >
             <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-base-200/70 text-base-content/70 transition-colors group-hover:bg-primary/10 group-hover:text-primary sm:size-12">
               <Icon size={21} strokeWidth={1.8} aria-hidden="true" />
