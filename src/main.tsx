@@ -9,6 +9,8 @@ import router from "./routes.tsx";
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   document.documentElement.setAttribute("data-theme", savedTheme);
+} else {
+  localStorage.setItem("theme", "mintlify");
 }
 
 createRoot(document.getElementById("root")!).render(

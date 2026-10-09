@@ -4,6 +4,7 @@ import type { MouseEvent } from "react";
 import { Images, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 import type { Project } from "../../projectItems";
+import AnimatedContent from "../../../../components/ui/AnimatedContent";
 
 export default function ProjectGallery({ project }: { project: Project }) {
   const images = project?.images ?? [];
@@ -104,45 +105,52 @@ export default function ProjectGallery({ project }: { project: Project }) {
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-4">
           {images.map((image, index) => (
-            <button
+            <AnimatedContent
               key={`${image}-${index}`}
-              type="button"
-              onClick={() => openLightbox(index)}
-              aria-label={`نمایش بزرگ تصویر ${index + 1} از ${title}`}
-              className="group relative min-w-0 overflow-hidden rounded-xl border border-base-300/70 bg-base-200/40 text-start transition duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              direction="vertical"
+              delay={0.5*(index+1)}
+              duration={3}
             >
-              <div className="relative aspect-5/3 overflow-hidden">
-                <img
-                  src={image}
-                  alt={`${title} - تصویر ${index + 1}`}
-                  loading={index < 4 ? "eager" : "lazy"}
-                  decoding="async"
-                  onLoad={() =>
-                    setLoadedImages((current) => ({
-                      ...current,
+              <button
+                key={`${image}-${index}`}
+                type="button"
+                onClick={() => openLightbox(index)}
+                aria-label={`نمایش بزرگ تصویر ${index + 1} از ${title}`}
+                className="group relative min-w-0 overflow-hidden rounded-xl border border-base-300/70 bg-base-200/40 text-start transition duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              >
+                <div className="relative aspect-5/3 overflow-hidden">
+                  <img
+                    src={image}
+                    alt={`${title} - تصویر ${index + 1}`}
+                    loading={index < 4 ? "eager" : "lazy"}
+                    decoding="async"
+                    onLoad={() =>
+                      setLoadedImages((current) => ({
+                        ...current,
 
-                      [index]: true,
-                    }))
-                  }
-                  className={`size-full object-contain object-center transition duration-500 group-hover:scale-[1.03] ${
-                    loadedImages[index] ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-
-                {!loadedImages[index] && (
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 animate-pulse bg-base-200"
+                        [index]: true,
+                      }))
+                    }
+                    className={`size-full object-contain object-center transition duration-500 group-hover:scale-[1.03] ${
+                      loadedImages[index] ? "opacity-100" : "opacity-0"
+                    }`}
                   />
-                )}
 
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-neutral-950/0 transition-colors duration-300 group-hover:bg-neutral-950/30">
-                  <span className="flex size-10 scale-90 items-center justify-center rounded-full bg-base-100/95 text-base-content opacity-0 shadow-lg transition duration-300 group-hover:scale-100 group-hover:opacity-100">
-                    <ZoomIn size={19} aria-hidden="true" />
-                  </span>
+                  {!loadedImages[index] && (
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 animate-pulse bg-base-200"
+                    />
+                  )}
+
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-neutral-950/0 transition-colors duration-300 group-hover:bg-neutral-950/30">
+                    <span className="flex size-10 scale-90 items-center justify-center rounded-full bg-base-100/95 text-base-content opacity-0 shadow-lg transition duration-300 group-hover:scale-100 group-hover:opacity-100">
+                      <ZoomIn size={19} aria-hidden="true" />
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </button>
+              </button>
+            </AnimatedContent>
           ))}
         </div>
       </section>

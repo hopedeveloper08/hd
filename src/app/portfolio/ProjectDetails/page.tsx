@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import ProjectHero from "./components/ProjectHero";
 import ProjectOverview from "./components/ProjectOverview";
 import ProjectGallery from "./components/ProjectGallery";
@@ -7,6 +7,7 @@ import ProjectResults from "./components/ProjectResults";
 import ProjectTechStack from "./components/ProjectTechStack";
 import ProjectFeatures from "./components/ProjectFeatures";
 import AnimatedContent from "../../../components/ui/AnimatedContent";
+import { HiOutlineArrowUturnLeft } from "react-icons/hi2";
 
 export default function ProjectDetails() {
   const project = useLoaderData();
@@ -30,6 +31,12 @@ export default function ProjectDetails() {
         </AnimatedContent>
         <AnimatedContent direction="horizontal" delay={0.5} duration={3}>
           <ProjectResults project={project} />
+        </AnimatedContent>
+        <AnimatedContent direction="horizontal" delay={0.5} duration={3}>
+          <Link to="/portfolio" className="btn btn-info w-full py-8 text-2xl">
+            <HiOutlineArrowUturnLeft />
+            بازگشت به نمونه کارها
+          </Link>
         </AnimatedContent>
       </div>
     </main>

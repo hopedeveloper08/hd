@@ -1,6 +1,7 @@
 import { Code2 } from "lucide-react";
 import { BASE_URL } from "../../../../lib/constants";
 import type { Project } from "../../projectItems";
+import AnimatedContent from "../../../../components/ui/AnimatedContent";
 
 export default function ProjectTechStack({ project }: { project: Project }) {
   const { technologies = [] } = project;
@@ -42,35 +43,42 @@ export default function ProjectTechStack({ project }: { project: Project }) {
         {/* Technologies */}
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
           {technologies.map((technology, index) => (
-            <div
+            <AnimatedContent
               key={`${technology}-${index}`}
-              className="group flex min-h-16 items-center gap-3 rounded-2xl border border-base-300/70 bg-base-100 p-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-base-200/40 shadow hover:shadow-md shadow-primary/60"
+              direction="vertical"
+              delay={0.5 * (index + 1)}
+              duration={3}
             >
-              <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-base-200 text-base-content/60 transition-colors duration-300 group-hover:bg-primary/10 group-hover:text-primary">
-                <img
-                  src={`${BASE_URL}images/technology/${technology.toLowerCase()}.svg`}
-                  alt=""
-                  loading="lazy"
-                  className="size-5 object-contain"
-                  onError={(event: React.SyntheticEvent<HTMLImageElement>) => {
-                    event.currentTarget.style.display = "none";
-                    const fallbackIcon = event.currentTarget.nextElementSibling;
-                    fallbackIcon?.classList.toggle("hidden");
-                  }}
-                />
+              <div className="group flex min-h-16 items-center gap-3 rounded-2xl border border-base-300/70 bg-base-100 p-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-base-200/40 shadow hover:shadow-md shadow-primary/60">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-base-200 text-base-content/60 transition-colors duration-300 group-hover:bg-primary/10 group-hover:text-primary">
+                  <img
+                    src={`${BASE_URL}images/technology/${technology.toLowerCase()}.svg`}
+                    alt=""
+                    loading="lazy"
+                    className="size-5 object-contain"
+                    onError={(
+                      event: React.SyntheticEvent<HTMLImageElement>,
+                    ) => {
+                      event.currentTarget.style.display = "none";
+                      const fallbackIcon =
+                        event.currentTarget.nextElementSibling;
+                      fallbackIcon?.classList.toggle("hidden");
+                    }}
+                  />
 
-                <Code2
-                  size={17}
-                  strokeWidth={1.8}
-                  aria-hidden="true"
-                  className="hidden"
-                />
+                  <Code2
+                    size={17}
+                    strokeWidth={1.8}
+                    aria-hidden="true"
+                    className="hidden"
+                  />
+                </div>
+
+                <span className="min-w-0 break-words text-sm font-medium leading-6 text-base-content/80">
+                  {technology}
+                </span>
               </div>
-
-              <span className="min-w-0 break-words text-sm font-medium leading-6 text-base-content/80">
-                {technology}
-              </span>
-            </div>
+            </AnimatedContent>
           ))}
         </div>
       </div>

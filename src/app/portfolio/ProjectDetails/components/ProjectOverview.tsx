@@ -48,7 +48,7 @@ export default function ProjectOverview({ project }: { project: Project }) {
             duration={3}
             ease="bounce.out"
           >
-            <article className="group flex min-w-0 items-center gap-3 rounded-2xl border border-base-300/70 bg-base-300/20 shadow-md shadow-base-300/60 p-4 transition-colors hover:border-primary/30 hover:shadow-primary/30 sm:gap-4 sm:p-5">
+            <article className="group flex min-w-0 items-center gap-3 rounded-2xl border border-base-300/70 bg-base-300/20 shadow-md shadow-base-300/60 p-4 transition-all hover:border-primary/30 hover:shadow-primary/30 hover:shadow-lg hover:scale-105 duration-500 sm:gap-4 sm:p-5">
               <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-base-200/70 text-base-content/70 transition-colors group-hover:bg-primary/10 group-hover:text-primary sm:size-12">
                 <Icon size={21} strokeWidth={1.8} aria-hidden="true" />
               </div>
