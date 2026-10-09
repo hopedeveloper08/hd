@@ -24,9 +24,7 @@ export default function ProjectDetails() {
         <AnimatedContent direction="horizontal" delay={0.5} duration={3}>
           <ProjectTechStack project={project} />
         </AnimatedContent>
-        <AnimatedContent direction="horizontal" delay={0.5} duration={3}>
-          <ProjectGallery project={project} />
-        </AnimatedContent>
+        <ProjectGallery project={project} />
         <AnimatedContent direction="horizontal" delay={0.5} duration={3}>
           <ProjectDescription project={project} />
         </AnimatedContent>

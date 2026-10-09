@@ -162,7 +162,7 @@ export default function ProjectGallery({ project }: { project: Project }) {
             role="dialog"
             aria-modal="true"
             aria-label={`نمایش تصویر ${activeIndex + 1} از ${title}`}
-            className="relative flex max-h-[92dvh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-2xl"
+            className="relative flex max-h-[92dvh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-2xl z-200"
           >
             {/* Lightbox toolbar */}
 
