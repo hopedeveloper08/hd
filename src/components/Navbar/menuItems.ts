@@ -4,15 +4,11 @@ export const MenuItems = [
     path: "/",
   },
   {
-    title: 'درباره‌ من',
-    path: "/about",
-  },
-  {
     title: 'نمونه‌ کارها',
     path: "/portfolio",
   },
   {
-    title: 'ارتباط‌ با من',
-    path: "/contact",
-  }
+    title: 'درباره‌ من',
+    path: "/about",
+  },
 ]

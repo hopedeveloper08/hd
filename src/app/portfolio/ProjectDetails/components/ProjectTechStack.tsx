@@ -1,5 +1,6 @@
 import { Code2 } from "lucide-react";
 import { BASE_URL } from "../../../../lib/constants";
+import type { Project } from "../../projectItems";
 
 export default function ProjectTechStack({ project }: { project: Project }) {
   const { technologies = [] } = project;
@@ -39,7 +40,7 @@ export default function ProjectTechStack({ project }: { project: Project }) {
         </div>
 
         {/* Technologies */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
           {technologies.map((technology, index) => (
             <div
               key={`${technology}-${index}`}
@@ -51,10 +52,10 @@ export default function ProjectTechStack({ project }: { project: Project }) {
                   alt=""
                   loading="lazy"
                   className="size-5 object-contain"
-                  onError={(event) => {
+                  onError={(event: React.SyntheticEvent<HTMLImageElement>) => {
                     event.currentTarget.style.display = "none";
-                    event.currentTarget.nextElementSibling.style.display =
-                      "block";
+                    const fallbackIcon = event.currentTarget.nextElementSibling;
+                    fallbackIcon?.classList.toggle("hidden");
                   }}
                 />
 

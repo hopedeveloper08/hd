@@ -1,19 +1,26 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { MouseEvent } from "react";
+
 import { Images, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+
 import type { Project } from "../../projectItems";
 
 export default function ProjectGallery({ project }: { project: Project }) {
   const images = project?.images ?? [];
+
   const title = project?.title ?? "پروژه";
 
-  const [activeIndex, setActiveIndex] = useState(null);
-  const [loadedImages, setLoadedImages] = useState({});
-  const closeButtonRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
+
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
   const isOpen = activeIndex !== null;
+
   const activeImage = isOpen ? images[activeIndex] : null;
 
-  const openLightbox = useCallback((index) => {
+  const openLightbox = useCallback((index: number) => {
     setActiveIndex(index);
   }, []);
 
@@ -22,35 +29,41 @@ export default function ProjectGallery({ project }: { project: Project }) {
   }, []);
 
   const showNext = useCallback(() => {
-    setActiveIndex((current) =>
+    setActiveIndex((current: number | null) =>
       current === null ? null : (current + 1) % images.length,
     );
   }, [images.length]);
 
   const showPrevious = useCallback(() => {
-    setActiveIndex((current) =>
+    setActiveIndex((current: number | null) =>
       current === null ? null : (current - 1 + images.length) % images.length,
     );
   }, [images.length]);
 
   // Keyboard controls and background scroll locking
+
   useEffect(() => {
     if (!isOpen) return;
 
     const previousOverflow = document.body.style.overflow;
+
     document.body.style.overflow = "hidden";
 
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeLightbox();
+
       if (event.key === "ArrowRight") showNext();
+
       if (event.key === "ArrowLeft") showPrevious();
     };
 
     document.addEventListener("keydown", handleKeyDown);
+
     closeButtonRef.current?.focus();
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+
       document.body.style.overflow = previousOverflow;
     };
   }, [isOpen, closeLightbox, showNext, showPrevious]);
@@ -65,6 +78,7 @@ export default function ProjectGallery({ project }: { project: Project }) {
         className="mb-8 rounded-3xl border border-base-300/70 bg-base-300/20 shadow-md shadow-base-300/60 p-5 sm:p-8 lg:p-10"
       >
         {/* Section header */}
+
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -87,7 +101,8 @@ export default function ProjectGallery({ project }: { project: Project }) {
         </div>
 
         {/* Responsive gallery */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-4">
           {images.map((image, index) => (
             <button
               key={`${image}-${index}`}
@@ -105,6 +120,7 @@ export default function ProjectGallery({ project }: { project: Project }) {
                   onLoad={() =>
                     setLoadedImages((current) => ({
                       ...current,
+
                       [index]: true,
                     }))
                   }
@@ -132,10 +148,11 @@ export default function ProjectGallery({ project }: { project: Project }) {
       </section>
 
       {/* Lightbox */}
+
       {isOpen && activeImage && (
         <div
           className="fixed inset-0 z-100 flex items-center justify-center bg-neutral-950/90 p-3 backdrop-blur-sm sm:p-6"
-          onMouseDown={(event) => {
+          onMouseDown={(event: MouseEvent<HTMLDivElement>) => {
             if (event.target === event.currentTarget) {
               closeLightbox();
             }
@@ -148,11 +165,13 @@ export default function ProjectGallery({ project }: { project: Project }) {
             className="relative flex max-h-[92dvh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-2xl"
           >
             {/* Lightbox toolbar */}
+
             <div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-5">
               <div className="min-w-0">
                 <p className="truncate text-sm font-medium text-white">
                   {title}
                 </p>
+
                 <p className="mt-1 text-xs text-white/50">
                   تصویر {activeIndex + 1} از {images.length}
                 </p>
@@ -170,6 +189,7 @@ export default function ProjectGallery({ project }: { project: Project }) {
             </div>
 
             {/* Main image */}
+
             <div className="relative flex min-h-0 flex-1 items-center justify-center p-3 sm:p-6">
               <button
                 type="button"
@@ -198,6 +218,7 @@ export default function ProjectGallery({ project }: { project: Project }) {
             </div>
 
             {/* Thumbnail navigation */}
+
             <div className="shrink-0 border-t border-white/10 px-3 py-3 sm:px-5">
               <div
                 className="flex gap-2 overflow-x-auto pb-1"

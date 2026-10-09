@@ -1,4 +1,5 @@
 import { Check, ListChecks } from "lucide-react";
+import type { Project } from "../../projectItems";
 
 export default function ProjectFeatures({ project }: { project: Project }) {
   const { features = [] } = project;

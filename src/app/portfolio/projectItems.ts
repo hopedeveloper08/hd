@@ -163,7 +163,7 @@ export const projectItems: Project[] = [
     slug: "coffee-shop",
     categories: [
       "فرانت‌اند",
-      "طراحی قالب وب‌سایت",
+      "توسعه قالب وب‌سایت",
       "پروژه آموزشی"
     ],
 
