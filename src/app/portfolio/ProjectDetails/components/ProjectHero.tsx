@@ -59,7 +59,7 @@ export default function ProjectHero({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className="btn btn-primary"
               >
-                مشاهده دمو آنلاین
+                مشاهده آنلاین
                 <HiOutlineExternalLink size={16} aria-hidden="true" />
               </a>
             )}
