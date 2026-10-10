@@ -5,6 +5,7 @@ import Main from "./app/main/page";
 import Portfolio from "./app/portfolio/page";
 import ProjectDetails from "./app/portfolio/ProjectDetails/page";
 import { projectItems } from "./app/portfolio/projectItems";
+import Resume from "./app/about/page";
 
 const router = createBrowserRouter(
   [
@@ -25,6 +26,10 @@ const router = createBrowserRouter(
           loader: ({ params }) =>
             projectItems.find((item) => item.slug === params.slug),
           Component: ProjectDetails,
+        },
+        {
+          path: "resume",
+          Component: Resume,
         },
       ],
     },

@@ -8,7 +8,7 @@ export const MenuItems = [
     path: "/portfolio",
   },
   {
-    title: 'درباره‌ من',
-    path: "/about",
+    title: 'رزومه',
+    path: "/resume",
   },
 ]
